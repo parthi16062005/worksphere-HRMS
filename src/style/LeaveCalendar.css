@@ -1,0 +1,858 @@
+
+/* =========================================
+   WORKSPHERE - LEAVE CALENDAR
+========================================= */
+
+.leave-calendar-page {
+    width: 100%;
+    min-width: 0;
+    padding: 24px;
+    color: #172033;
+    background: #f5f7fb;
+    box-sizing: border-box;
+}
+
+.leave-calendar-page * {
+    box-sizing: border-box;
+}
+
+.lc-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 26px;
+}
+
+.lc-eyebrow {
+    display: inline-block;
+    margin-bottom: 9px;
+    color: #5268d9;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.lc-page-header h1 {
+    margin: 0;
+    color: #172033;
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.lc-page-header p {
+    margin: 9px 0 0;
+    color: #778197;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.lc-refresh-button {
+    min-height: 43px;
+    padding: 0 18px;
+    border: 1px solid #dfe4ef;
+    border-radius: 10px;
+    color: #3545a5;
+    background: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.lc-refresh-button:hover:not(:disabled) {
+    border-color: #aab6f5;
+    background: #f1f3ff;
+    transform: translateY(-1px);
+}
+
+.lc-refresh-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+/* =========================================
+   DEPARTMENT FILTER
+========================================= */
+
+.lc-filter-panel {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 22px;
+    padding: 17px 20px;
+    border: 1px solid #e8ebf3;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 3px 14px rgb(30 42 80 / 3%);
+}
+
+.lc-filter-panel label {
+    color: #4a556b;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.lc-filter-panel select {
+    min-width: 190px;
+    min-height: 40px;
+    padding: 0 34px 0 12px;
+    border: 1px solid #dce2ed;
+    border-radius: 9px;
+    outline: none;
+    color: #263248;
+    background: #ffffff;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.lc-filter-panel select:focus {
+    border-color: #697ce8;
+    box-shadow: 0 0 0 3px rgb(87 105 220 / 12%);
+}
+
+.lc-filter-hint {
+    color: #8a93a6;
+    font-size: 12px;
+}
+
+/* =========================================
+   ERROR MESSAGE
+========================================= */
+
+.lc-error {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding: 14px 16px;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    color: #991b1b;
+    background: #fff1f2;
+    font-size: 13px;
+}
+
+.lc-error button {
+    padding: 7px 12px;
+    border: 1px solid #fda4af;
+    border-radius: 7px;
+    color: #991b1b;
+    background: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* =========================================
+   STATISTIC CARDS
+========================================= */
+
+.lc-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 17px;
+    margin-bottom: 24px;
+}
+
+.lc-stat-card {
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid #e8ebf3;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 4px 16px rgb(30 42 80 / 3%);
+}
+
+.lc-stat-card::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: #6677e8;
+    content: "";
+}
+
+.lc-stat-leave::after {
+    background: #e4a04b;
+}
+
+.lc-stat-available::after {
+    background: #2fa783;
+}
+
+.lc-stat-percentage::after {
+    background: #8b6ce3;
+}
+
+.lc-stat-label {
+    display: block;
+    color: #788297;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.lc-stat-card strong {
+    display: block;
+    margin: 12px 0 8px;
+    color: #1c2940;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.lc-stat-note {
+    display: block;
+    color: #929bad;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.lc-main-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.85fr);
+    align-items: start;
+    gap: 22px;
+    margin-bottom: 24px;
+}
+
+.lc-panel {
+    min-width: 0;
+    padding: 23px;
+    border: 1px solid #e8ebf3;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 18px rgb(30 42 80 / 3%);
+}
+
+.lc-calendar-heading,
+.lc-team-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 23px;
+}
+
+.lc-calendar-heading h2,
+.lc-team-heading h2,
+.lc-monthly-summary h2 {
+    margin: 0;
+    color: #1d2940;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+}
+
+.lc-calendar-heading p,
+.lc-team-heading p,
+.lc-monthly-summary > div > p {
+    margin: 7px 0 0;
+    color: #8a93a6;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   MONTH NAVIGATION
+========================================= */
+
+.lc-month-controls {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.lc-month-controls button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 35px;
+    padding: 0 11px;
+    border: 1px solid #e1e5ef;
+    border-radius: 8px;
+    color: #46536a;
+    background: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.lc-month-controls button:first-child,
+.lc-month-controls button:last-child {
+    font-size: 23px;
+    line-height: 1;
+}
+
+.lc-month-controls button:hover {
+    border-color: #c4ccff;
+    color: #4d5fd1;
+    background: #f2f4ff;
+}
+
+/* =========================================
+   CALENDAR GRID
+========================================= */
+
+.lc-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    border-top: 1px solid #edf0f5;
+    border-left: 1px solid #edf0f5;
+}
+
+.lc-weekday {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 39px;
+    border-right: 1px solid #edf0f5;
+    border-bottom: 1px solid #edf0f5;
+    color: #8791a4;
+    background: #fafbfe;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.lc-day {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    min-width: 0;
+    min-height: 100px;
+    padding: 8px 6px;
+    overflow: hidden;
+    border: 0;
+    border-right: 1px solid #edf0f5;
+    border-bottom: 1px solid #edf0f5;
+    outline: none;
+    color: #334057;
+    background: #ffffff;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.lc-day:hover {
+    background: #f6f7ff;
+}
+
+.lc-day:focus-visible {
+    position: relative;
+    z-index: 1;
+    box-shadow: inset 0 0 0 2px #6677e8;
+}
+
+.lc-empty-day {
+    background: #fafbfe;
+    cursor: default;
+}
+
+.lc-empty-day:hover {
+    background: #fafbfe;
+}
+
+.lc-day-selected {
+    background: #f0f2ff;
+    box-shadow: inset 0 0 0 2px #6477e9;
+}
+
+.lc-day-today .lc-day-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    margin: -3px 0;
+    border-radius: 50%;
+    color: #ffffff;
+    background: #5b6fdd;
+}
+
+.lc-day-selected.lc-day-today .lc-day-number {
+    background: #3548bc;
+}
+
+.lc-day-number {
+    color: #3e4a60;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.lc-day-events {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #a66a1b;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.lc-event-dot,
+.lc-legend-dot {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #e8a34c;
+}
+
+.lc-leave-chip {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    padding: 4px 5px;
+    border-radius: 4px;
+    color: #78521c;
+    background: #fff1d8;
+    font-size: 9px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lc-more-events {
+    color: #6876c9;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.lc-calendar-legend {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 17px;
+    margin-top: 19px;
+}
+
+.lc-calendar-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #7d879b;
+    font-size: 11px;
+}
+
+.lc-legend-today,
+.lc-legend-selected {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+}
+
+.lc-legend-today {
+    background: #5b6fdd;
+}
+
+.lc-legend-selected {
+    border: 2px solid #6477e9;
+    background: #f0f2ff;
+}
+
+/* =========================================
+   TEAM AVAILABILITY
+========================================= */
+
+.lc-team-badge {
+    padding: 7px 10px;
+    border-radius: 8px;
+    color: #9a651b;
+    background: #fff3df;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.lc-list-title {
+    margin: 0 0 12px;
+    color: #3b465c;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.lc-available-title {
+    margin-top: 25px;
+}
+
+.lc-employee-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.lc-employee-row {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+    padding: 11px 9px;
+    border: 1px solid #edf0f5;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.lc-avatar {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 37px;
+    height: 37px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.lc-avatar-leave {
+    color: #a56c1d;
+    background: #fff0d4;
+}
+
+.lc-avatar-available {
+    color: #168566;
+    background: #dcf7ec;
+}
+
+.lc-employee-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.lc-employee-info strong {
+    overflow: hidden;
+    color: #29364c;
+    font-size: 12px;
+    font-weight: 800;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lc-employee-info > span {
+    overflow: hidden;
+    color: #929bad;
+    font-size: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lc-status-pill {
+    flex-shrink: 0;
+    padding: 5px 7px;
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.lc-status-leave {
+    color: #9b661d;
+    background: #fff2dc;
+}
+
+.lc-status-available {
+    color: #178363;
+    background: #e0f7ed;
+}
+
+.lc-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 12px;
+    border: 1px dashed #dfe5ef;
+    border-radius: 11px;
+    background: #fafbfe;
+    text-align: center;
+}
+
+.lc-empty-state > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    color: #198666;
+    background: #dcf7ec;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.lc-empty-state strong {
+    color: #47536a;
+    font-size: 12px;
+}
+
+.lc-empty-state p {
+    margin: 7px 0 0;
+    color: #929bad;
+    font-size: 11px;
+}
+
+.lc-empty-compact {
+    padding: 16px 10px;
+    color: #8993a7;
+    font-size: 12px;
+    text-align: center;
+}
+
+.lc-state-message {
+    padding: 25px 10px;
+    color: #7d879b;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* =========================================
+   MONTHLY SUMMARY
+========================================= */
+
+.lc-monthly-summary {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.lc-monthly-summary > div:first-child {
+    flex: 1;
+    min-width: 200px;
+}
+
+.lc-summary-count {
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #5363ca;
+    background: #eef0ff;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.lc-summary-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 2px;
+}
+
+.lc-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.lc-summary-table th {
+    padding: 13px 14px;
+    border-bottom: 1px solid #e9edf4;
+    color: #8791a4;
+    background: #fafbfe;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+.lc-summary-table td {
+    padding: 15px 14px;
+    border-bottom: 1px solid #edf0f5;
+    color: #566177;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.lc-summary-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.lc-summary-table tbody tr:hover {
+    background: #fafbff;
+}
+
+.lc-summary-table td:first-child strong {
+    display: block;
+    color: #2b374c;
+    font-size: 12px;
+}
+
+.lc-table-code {
+    display: block;
+    margin-top: 4px;
+    color: #939bad;
+    font-size: 10px;
+}
+
+.lc-leave-type {
+    display: inline-block;
+    padding: 5px 8px;
+    border-radius: 6px;
+    color: #77521d;
+    background: #fff1d9;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1200px) {
+    .lc-stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lc-main-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .lc-team-panel {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .leave-calendar-page {
+        padding: 14px;
+    }
+
+    .lc-page-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .lc-filter-panel {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .lc-filter-panel select {
+        width: 100%;
+    }
+
+    .lc-filter-hint {
+        line-height: 1.5;
+    }
+
+    .lc-stat-grid {
+        gap: 10px;
+    }
+
+    .lc-stat-card {
+        padding: 15px;
+    }
+
+    .lc-stat-card strong {
+        font-size: 27px;
+    }
+
+    .lc-panel {
+        padding: 14px;
+    }
+
+    .lc-calendar-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .lc-calendar-grid {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+
+    .lc-weekday {
+        min-height: 32px;
+        font-size: 9px;
+    }
+
+    .lc-day {
+        min-height: 67px;
+        padding: 5px 3px;
+        gap: 4px;
+    }
+
+    .lc-day-number {
+        font-size: 10px;
+    }
+
+    .lc-day-today .lc-day-number {
+        width: 20px;
+        height: 20px;
+    }
+
+    .lc-day-events {
+        font-size: 8px;
+    }
+
+    .lc-leave-chip {
+        padding: 3px 2px;
+        font-size: 8px;
+    }
+
+    .lc-more-events {
+        font-size: 8px;
+    }
+
+    .lc-calendar-legend {
+        gap: 10px;
+    }
+
+    .lc-calendar-legend span {
+        font-size: 10px;
+    }
+
+    .lc-employee-row {
+        gap: 8px;
+        padding: 9px 6px;
+    }
+
+    .lc-status-pill {
+        padding: 4px 5px;
+        font-size: 8px;
+    }
+
+    .lc-monthly-summary {
+        gap: 13px;
+    }
+
+    .lc-summary-table th,
+    .lc-summary-table td {
+        padding: 11px 10px;
+    }
+}
+
+@media (max-width: 380px) {
+    .lc-stat-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .lc-day {
+        min-height: 56px;
+    }
+
+    .lc-leave-chip {
+        display: none;
+    }
+}

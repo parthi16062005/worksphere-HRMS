@@ -1,0 +1,168 @@
+/* Global Styles */
+
+:root {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #202b3c;
+    background: #f5f7fb;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f5f7fb;
+}
+
+.app-navbar {
+    min-height: 80px;
+    padding: 16px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: #ffffff;
+    border-bottom: 1px solid #e9edf4;
+}
+
+.app-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.app-brand-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: #2458df;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.app-brand h2 {
+    margin: 0;
+    color: #17243b;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.app-brand span {
+    display: block;
+    margin-top: 4px;
+    color: #7c879b;
+    font-size: 11px;
+}
+
+.app-navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.app-navbar-username {
+    color: #354157;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.app-logout-button {
+    padding: 10px 17px;
+    border: 1px solid #2458df;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #2458df;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.app-logout-button:hover {
+    background: #2458df;
+    color: #ffffff;
+}
+
+.app-footer {
+    min-height: 64px;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid #e9edf4;
+    background: #ffffff;
+    color: #929bad;
+    font-size: 10px;
+}
+
+@media (max-width: 600px) {
+    .app-navbar {
+        min-height: 70px;
+        padding: 13px 5%;
+    }
+
+    .app-brand-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 21px;
+    }
+
+    .app-brand h2 {
+        font-size: 17px;
+    }
+
+    .app-brand span {
+        font-size: 9px;
+    }
+
+    .app-navbar-actions {
+        gap: 8px;
+    }
+
+    .app-navbar-username {
+        max-width: 90px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .app-logout-button {
+        padding: 9px 11px;
+        font-size: 11px;
+    }
+
+    .app-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        padding: 18px 5%;
+    }
+}

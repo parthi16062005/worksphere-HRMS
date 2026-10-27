@@ -1,0 +1,620 @@
+.pr-page {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 30px;
+    color: #172033;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.pr-page *,
+.pr-page *::before,
+.pr-page *::after {
+    box-sizing: border-box;
+}
+
+.pr-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.pr-eyebrow {
+    margin: 0 0 9px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.pr-header h1 {
+    margin: 0;
+    color: #172033;
+    font-size: clamp(27px, 3vw, 36px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.pr-subtitle {
+    max-width: 700px;
+    margin: 11px 0 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.pr-refresh-button,
+.pr-apply-button,
+.pr-reset-button,
+.pr-csv-button,
+.pr-excel-button {
+    min-height: 43px;
+    padding: 11px 18px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.pr-refresh-button:hover,
+.pr-apply-button:hover,
+.pr-csv-button:hover,
+.pr-excel-button:hover {
+    transform: translateY(-1px);
+}
+
+.pr-refresh-button:disabled,
+.pr-apply-button:disabled,
+.pr-reset-button:disabled,
+.pr-csv-button:disabled,
+.pr-excel-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+}
+
+.pr-refresh-button {
+    flex-shrink: 0;
+    color: #ffffff;
+    background: #1d4ed8;
+    box-shadow: 0 4px 12px rgb(29 78 216 / 15%);
+}
+
+.pr-refresh-button:hover {
+    background: #1e40af;
+}
+
+.pr-filter-panel,
+.pr-department-panel,
+.pr-export-panel {
+    margin-bottom: 28px;
+    padding: 25px;
+    border: 1px solid #e5eaf2;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 5px 20px rgb(15 23 42 / 4%);
+}
+
+.pr-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.pr-section-heading h2,
+.pr-export-content h2 {
+    margin: 0;
+    color: #172033;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.pr-section-heading p,
+.pr-export-content p {
+    margin: 7px 0 0;
+    color: #718096;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.pr-live-badge,
+.pr-record-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 29px;
+    padding: 6px 11px;
+    border-radius: 7px;
+    color: #1d4ed8;
+    background: #eff6ff;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.pr-filter-grid {
+    display: grid;
+    grid-template-columns: minmax(170px, 1fr) minmax(170px, 1fr) auto;
+    align-items: end;
+    gap: 18px;
+}
+
+.pr-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.pr-form-group label {
+    color: #475569;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.pr-form-group select {
+    width: 100%;
+    min-height: 45px;
+    padding: 0 13px;
+    outline: none;
+    border: 1px solid #dbe2ec;
+    border-radius: 9px;
+    color: #263449;
+    background: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.pr-form-group select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgb(59 130 246 / 12%);
+}
+
+.pr-filter-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.pr-apply-button {
+    color: #ffffff;
+    background: #1d4ed8;
+}
+
+.pr-apply-button:hover {
+    background: #1e40af;
+}
+
+.pr-reset-button {
+    border-color: #dbe2ec;
+    color: #475569;
+    background: #ffffff;
+}
+
+.pr-reset-button:hover {
+    background: #f8fafc;
+}
+
+.pr-metrics-section,
+.pr-financial-section {
+    margin-bottom: 29px;
+}
+
+.pr-metrics-section > .pr-section-heading,
+.pr-financial-section > .pr-section-heading {
+    margin-bottom: 17px;
+}
+
+.pr-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.pr-metric-card {
+    position: relative;
+    min-width: 0;
+    padding: 23px;
+    overflow: hidden;
+    border: 1px solid #e5eaf2;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 5px 20px rgb(15 23 42 / 4%);
+}
+
+.pr-metric-card::after {
+    position: absolute;
+    right: -25px;
+    bottom: -38px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: currentColor;
+    content: "";
+    opacity: 0.035;
+    pointer-events: none;
+}
+
+.pr-metric-blue {
+    color: #2563eb;
+}
+
+.pr-metric-green {
+    color: #059669;
+}
+
+.pr-metric-orange {
+    color: #d97706;
+}
+
+.pr-metric-purple {
+    color: #7c3aed;
+}
+
+.pr-metric-top {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 22px;
+}
+
+.pr-metric-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    flex-shrink: 0;
+    border-radius: 11px;
+    color: currentColor;
+    background: #f1f5f9;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.pr-metric-blue .pr-metric-icon {
+    background: #eff6ff;
+}
+
+.pr-metric-green .pr-metric-icon {
+    background: #ecfdf5;
+}
+
+.pr-metric-orange .pr-metric-icon {
+    background: #fffbeb;
+}
+
+.pr-metric-purple .pr-metric-icon {
+    background: #f5f3ff;
+}
+
+.pr-metric-label {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.pr-metric-card h3 {
+    margin: 0;
+    overflow-wrap: anywhere;
+    color: #172033;
+    font-size: clamp(22px, 2vw, 29px);
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+.pr-metric-card p {
+    margin: 10px 0 0;
+    color: #8792a4;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.pr-financial-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.pr-financial-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+    padding: 21px;
+    border: 1px solid #e5eaf2;
+    border-radius: 13px;
+    background: #ffffff;
+}
+
+.pr-financial-label {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.pr-financial-card strong {
+    overflow-wrap: anywhere;
+    color: #172033;
+    font-size: clamp(18px, 1.7vw, 24px);
+    font-weight: 800;
+}
+
+.pr-financial-card p {
+    margin: 0;
+    color: #8792a4;
+    font-size: 11px;
+}
+
+.pr-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e8edf4;
+    border-radius: 11px;
+}
+
+.pr-table {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.pr-table thead {
+    background: #f8fafc;
+}
+
+.pr-table th {
+    padding: 15px 17px;
+    border-bottom: 1px solid #e5eaf2;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.pr-table td {
+    padding: 16px 17px;
+    border-bottom: 1px solid #edf1f6;
+    color: #475569;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.pr-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.pr-table tbody tr:hover {
+    background: #fafcff;
+}
+
+.pr-department-name {
+    color: #172033;
+    font-weight: 800;
+}
+
+.pr-net-cell {
+    color: #1d4ed8 !important;
+    font-weight: 800;
+}
+
+.pr-paid-cell {
+    color: #059669 !important;
+    font-weight: 700;
+}
+
+.pr-pending-cell {
+    color: #d97706 !important;
+    font-weight: 700;
+}
+
+.pr-empty-state {
+    padding: 38px 20px !important;
+    color: #94a3b8 !important;
+    text-align: center;
+    white-space: normal !important;
+}
+
+.pr-export-panel {
+    color: #ffffff;
+    border: none;
+    background: linear-gradient(120deg, #172554, #1e40af);
+}
+
+.pr-export-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.pr-export-content h2 {
+    color: #ffffff;
+}
+
+.pr-export-content p {
+    max-width: 650px;
+    color: #dbeafe;
+}
+
+.pr-export-actions {
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pr-csv-button {
+    border-color: rgb(255 255 255 / 25%);
+    color: #ffffff;
+    background: rgb(255 255 255 / 10%);
+}
+
+.pr-csv-button:hover {
+    background: rgb(255 255 255 / 20%);
+}
+
+.pr-excel-button {
+    color: #14532d;
+    background: #bbf7d0;
+}
+
+.pr-excel-button:hover {
+    background: #86efac;
+}
+
+.pr-export-note {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgb(255 255 255 / 16%);
+    color: #bfdbfe;
+    font-size: 11px;
+}
+
+.pr-alert {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 14px 16px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.pr-alert button {
+    padding: 0 4px;
+    border: none;
+    color: inherit;
+    background: transparent;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.pr-alert-error {
+    border-color: #fecaca;
+    color: #991b1b;
+    background: #fef2f2;
+}
+
+.pr-alert-success {
+    border-color: #bbf7d0;
+    color: #166534;
+    background: #f0fdf4;
+}
+
+.pr-access-denied {
+    padding: 45px 25px;
+    border: 1px solid #fecaca;
+    border-radius: 14px;
+    background: #fef2f2;
+    text-align: center;
+}
+
+.pr-access-denied h2 {
+    margin: 0 0 10px;
+    color: #991b1b;
+}
+
+.pr-access-denied p {
+    margin: 0;
+    color: #7f1d1d;
+    font-size: 14px;
+}
+
+.pr-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 20px 2px 5px;
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+@media (max-width: 1100px) {
+    .pr-metrics-grid,
+    .pr-financial-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pr-filter-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pr-filter-actions {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 700px) {
+    .pr-page {
+        padding: 17px;
+    }
+
+    .pr-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .pr-refresh-button {
+        width: 100%;
+    }
+
+    .pr-filter-panel,
+    .pr-department-panel,
+    .pr-export-panel {
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    .pr-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .pr-filter-grid,
+    .pr-metrics-grid,
+    .pr-financial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pr-filter-actions {
+        flex-direction: column;
+    }
+
+    .pr-filter-actions button {
+        width: 100%;
+    }
+
+    .pr-export-content {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .pr-export-actions {
+        flex-direction: column;
+    }
+
+    .pr-export-actions button {
+        width: 100%;
+    }
+
+    .pr-footer {
+        flex-direction: column;
+    }
+}
