@@ -1,0 +1,496 @@
+
+/* =====================================================
+   MODULE 22: RESIGNATION & EXIT MANAGEMENT
+   ===================================================== */
+
+.resignation-page {
+    width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   PAGE HEADER
+   ===================================================== */
+
+.resignation-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.resignation-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.resignation-header p {
+    margin: 8px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   REFRESH BUTTON
+   ===================================================== */
+
+.resignation-refresh-btn {
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #374151;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.resignation-refresh-btn:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+
+/* =====================================================
+   ALERTS
+   ===================================================== */
+
+.resignation-alert {
+    padding: 13px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.resignation-alert.error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+}
+
+.resignation-alert.success {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #15803d;
+}
+
+
+/* =====================================================
+   COMMON CARD
+   ===================================================== */
+
+.resignation-card,
+.resignation-filter-card,
+.resignation-list-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+
+/* =====================================================
+   EMPLOYEE SUBMISSION CARD
+   ===================================================== */
+
+.resignation-card {
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.resignation-card-header {
+    margin-bottom: 22px;
+}
+
+.resignation-card-header h2,
+.resignation-filter-card h2,
+.resignation-list-header h2 {
+    margin: 0;
+    color: #111827;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.resignation-card-header p,
+.resignation-filter-card p,
+.resignation-list-header p {
+    margin: 6px 0 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   FORM
+   ===================================================== */
+
+.resignation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.resignation-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.resignation-form-group label,
+.resignation-filter label {
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.resignation-form-group textarea,
+.resignation-form-group input,
+.resignation-filter select {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #111827;
+    font-size: 14px;
+    padding: 11px 13px;
+    outline: none;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.resignation-form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+    font-family: inherit;
+    line-height: 1.5;
+}
+
+.resignation-form-group textarea:focus,
+.resignation-form-group input:focus,
+.resignation-filter select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.resignation-form-group small {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+   ===================================================== */
+
+.resignation-submit-btn {
+    align-self: flex-start;
+    border: none;
+    background: #2563eb;
+    color: #ffffff;
+    padding: 11px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.resignation-submit-btn:hover {
+    background: #1d4ed8;
+}
+
+.resignation-submit-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+
+/* =====================================================
+   HR / ADMIN FILTER
+   ===================================================== */
+
+.resignation-filter-card {
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.resignation-filter {
+    width: 210px;
+}
+
+.resignation-filter select {
+    margin-top: 7px;
+}
+
+
+/* =====================================================
+   LIST CARD
+   ===================================================== */
+
+.resignation-list-card {
+    overflow: hidden;
+}
+
+.resignation-list-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.resignation-count {
+    min-width: 38px;
+    height: 38px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   TABLE
+   ===================================================== */
+
+.resignation-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.resignation-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+}
+
+.resignation-table th {
+    background: #f9fafb;
+    color: #4b5563;
+    text-align: left;
+    padding: 13px 18px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.resignation-table td {
+    padding: 16px 18px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #374151;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.resignation-table tbody tr:hover {
+    background: #fafafa;
+}
+
+.resignation-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =====================================================
+   REASON
+   ===================================================== */
+
+.resignation-reason {
+    max-width: 320px;
+    line-height: 1.5;
+    color: #374151;
+}
+
+
+/* =====================================================
+   STATUS BADGES
+   ===================================================== */
+
+.resignation-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 82px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.resignation-status.pending {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.resignation-status.approved {
+    background: #f0fdf4;
+    color: #15803d;
+}
+
+.resignation-status.rejected {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+
+/* =====================================================
+   HR / ADMIN ACTION BUTTONS
+   ===================================================== */
+
+.resignation-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.approve-btn,
+.reject-btn {
+    border: none;
+    padding: 8px 13px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.approve-btn {
+    background: #16a34a;
+    color: #ffffff;
+}
+
+.approve-btn:hover {
+    background: #15803d;
+}
+
+.reject-btn {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.reject-btn:hover {
+    background: #fecaca;
+}
+
+.approve-btn:disabled,
+.reject-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.reviewed-text {
+    color: #9ca3af;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   EMPTY / LOADING STATE
+   ===================================================== */
+
+.resignation-empty {
+    padding: 50px 24px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    .resignation-page {
+        padding: 16px;
+    }
+
+    .resignation-header {
+        flex-direction: column;
+    }
+
+    .resignation-header h1 {
+        font-size: 23px;
+    }
+
+    .resignation-refresh-btn {
+        width: 100%;
+    }
+
+    .resignation-card {
+        padding: 18px;
+    }
+
+    .resignation-filter-card {
+        padding: 18px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .resignation-filter {
+        width: 100%;
+    }
+
+    .resignation-list-header {
+        padding: 18px;
+    }
+
+    .resignation-table {
+        min-width: 680px;
+    }
+
+    .resignation-submit-btn {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .resignation-page {
+        padding: 12px;
+    }
+
+    .resignation-header h1 {
+        font-size: 21px;
+    }
+
+    .resignation-card,
+    .resignation-filter-card {
+        border-radius: 9px;
+    }
+
+    .resignation-list-header {
+        align-items: flex-start;
+    }
+
+    .resignation-count {
+        min-width: 34px;
+        height: 34px;
+    }
+}

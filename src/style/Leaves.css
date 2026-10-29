@@ -1,0 +1,661 @@
+
+/* =========================================
+   WORKSPHERE - LEAVE MANAGEMENT
+========================================= */
+
+.ws-leaves-page {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 28px;
+    color: #172033;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+/* Page heading */
+
+.ws-leaves-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.ws-leaves-header h1 {
+    margin: 0 0 8px;
+    color: #172554;
+    font-size: 30px;
+    font-weight: 750;
+    letter-spacing: -0.8px;
+}
+
+.ws-leaves-header p,
+.ws-leaves-section-heading p {
+    margin: 0;
+    color: #718096;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* General panels */
+
+.ws-leaves-panel {
+    margin-bottom: 26px;
+    padding: 26px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e7edf5;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(28, 48, 94, 0.045);
+}
+
+.ws-leaves-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.ws-leaves-section-heading h2 {
+    margin: 0 0 7px;
+    color: #1e293b;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Buttons */
+
+.ws-leaves-primary-button,
+.ws-leaves-secondary-button,
+.ws-leaves-approve-button,
+.ws-leaves-reject-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 18px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.ws-leaves-primary-button {
+    color: #ffffff;
+    background: linear-gradient(135deg, #315eea, #4f46e5);
+    box-shadow: 0 4px 10px rgba(59, 91, 219, 0.18);
+}
+
+.ws-leaves-primary-button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #244bd0, #4338ca);
+    box-shadow: 0 6px 14px rgba(59, 91, 219, 0.25);
+    transform: translateY(-1px);
+}
+
+.ws-leaves-secondary-button {
+    color: #475569;
+    background: #ffffff;
+    border-color: #dce4ef;
+}
+
+.ws-leaves-secondary-button:hover:not(:disabled) {
+    background: #f5f7fb;
+    border-color: #b9c6d9;
+}
+
+.ws-leaves-primary-button:disabled,
+.ws-leaves-secondary-button:disabled,
+.ws-leaves-approve-button:disabled,
+.ws-leaves-reject-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* Notification messages */
+
+.ws-leaves-alert {
+    margin-bottom: 20px;
+    padding: 14px 17px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.ws-leaves-alert-error {
+    color: #b42318;
+    background: #fff1f0;
+    border-color: #ffd1cc;
+}
+
+.ws-leaves-alert-success {
+    color: #167647;
+    background: #ecfdf3;
+    border-color: #b7ebca;
+}
+
+/* Leave balance cards */
+
+.ws-leaves-balance-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.ws-leaves-balance-card {
+    position: relative;
+    min-width: 0;
+    padding: 23px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #ffffff 0%, #f8faff 100%);
+    border: 1px solid #e0e8f8;
+    border-radius: 16px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.ws-leaves-balance-card::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #4169e1, #818cf8);
+    content: "";
+}
+
+.ws-leaves-balance-card:hover {
+    box-shadow: 0 10px 25px rgba(42, 70, 130, 0.09);
+    transform: translateY(-3px);
+}
+
+.ws-leaves-balance-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 23px;
+}
+
+.ws-leaves-balance-label {
+    color: #475569;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.ws-leaves-balance-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    color: #3559cf;
+    background: #e9efff;
+    border-radius: 13px;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.ws-leaves-balance-card:nth-child(2) .ws-leaves-balance-icon {
+    color: #047857;
+    background: #dff8ec;
+}
+
+.ws-leaves-balance-card:nth-child(3) .ws-leaves-balance-icon {
+    color: #a16207;
+    background: #fff2cc;
+}
+
+.ws-leaves-balance-total {
+    margin-bottom: 24px;
+    color: #172554;
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.ws-leaves-balance-total span {
+    color: #8190a5;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.ws-leaves-balance-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding-top: 17px;
+    border-top: 1px solid #e7edf5;
+}
+
+.ws-leaves-balance-details > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.ws-leaves-balance-details span {
+    color: #8290a5;
+    font-size: 12px;
+    font-weight: 550;
+}
+
+.ws-leaves-balance-details strong {
+    color: #263750;
+    font-size: 20px;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+}
+
+.ws-leaves-balance-note {
+    margin: 15px 0 0;
+    color: #b45309;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.ws-leaves-balance-hint {
+    margin-top: 20px;
+    padding: 14px 16px;
+    color: #344c7c;
+    background: #f0f5ff;
+    border: 1px solid #dce7ff;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Request statistics */
+
+.ws-leaves-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 26px;
+}
+
+.ws-leaves-stat-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 23px;
+    background: #ffffff;
+    border: 1px solid #e7edf5;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(28, 48, 94, 0.035);
+}
+
+.ws-leaves-stat-card::before {
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 0;
+    width: 4px;
+    background: #4169e1;
+    border-radius: 0 4px 4px 0;
+    content: "";
+}
+
+.ws-leaves-stat-card:nth-child(2)::before {
+    background: #e9a23b;
+}
+
+.ws-leaves-stat-card:nth-child(3)::before {
+    background: #16a36a;
+}
+
+.ws-leaves-stat-card:nth-child(4)::before {
+    background: #e05260;
+}
+
+.ws-leaves-stat-card span {
+    color: #77869b;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.ws-leaves-stat-card strong {
+    color: #1e293b;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+/* Forms */
+
+.ws-leaves-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.ws-leaves-field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.ws-leaves-field label {
+    color: #344256;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.ws-leaves-field input,
+.ws-leaves-field select,
+.ws-leaves-field textarea,
+.ws-leaves-review-actions textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    color: #263750;
+    background: #ffffff;
+    border: 1px solid #d9e1ed;
+    border-radius: 10px;
+    outline: none;
+    font: inherit;
+    font-size: 13px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.ws-leaves-field input,
+.ws-leaves-field select {
+    min-height: 45px;
+}
+
+.ws-leaves-field textarea,
+.ws-leaves-review-actions textarea {
+    min-height: 95px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.ws-leaves-field input:focus,
+.ws-leaves-field select:focus,
+.ws-leaves-field textarea:focus,
+.ws-leaves-review-actions textarea:focus {
+    border-color: #6485f2;
+    box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.11);
+}
+
+.ws-leaves-field input:disabled,
+.ws-leaves-field select:disabled,
+.ws-leaves-field textarea:disabled {
+    color: #8994a6;
+    background: #f5f7fa;
+    cursor: not-allowed;
+}
+
+.ws-leaves-field small {
+    color: #77869b;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.ws-leaves-reason-field {
+    grid-column: 1 / -1;
+}
+
+.ws-leaves-form-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+/* Filters */
+
+.ws-leaves-filters {
+    display: grid;
+    grid-template-columns: minmax(160px, 1fr) minmax(160px, 1fr) auto auto;
+    align-items: end;
+    gap: 15px;
+    margin-bottom: 24px;
+    padding: 18px;
+    background: #f8faff;
+    border: 1px solid #e7edf5;
+    border-radius: 13px;
+}
+
+/* Table */
+
+.ws-leaves-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e7edf5;
+    border-radius: 12px;
+}
+
+.ws-leaves-table {
+    width: 100%;
+    min-width: 1000px;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+}
+
+.ws-leaves-table thead {
+    background: #f5f7fc;
+}
+
+.ws-leaves-table th {
+    padding: 15px 16px;
+    color: #58677e;
+    border-bottom: 1px solid #e4eaf3;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.ws-leaves-table td {
+    padding: 16px;
+    color: #45546a;
+    border-bottom: 1px solid #edf1f7;
+    font-size: 13px;
+    line-height: 1.6;
+    vertical-align: top;
+}
+
+.ws-leaves-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.ws-leaves-table tbody tr {
+    transition: background 0.15s ease;
+}
+
+.ws-leaves-table tbody tr:hover {
+    background: #fafbff;
+}
+
+.ws-leaves-table td:first-child {
+    color: #315eea;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.ws-leaves-reason-cell {
+    min-width: 150px;
+    max-width: 260px;
+    overflow-wrap: anywhere;
+}
+
+/* Status badges */
+
+.ws-leaves-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 11px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.25px;
+    white-space: nowrap;
+}
+
+.ws-leaves-status.pending {
+    color: #9a6700;
+    background: #fff7d6;
+    border-color: #ffeb9c;
+}
+
+.ws-leaves-status.approved {
+    color: #137548;
+    background: #e3f8ec;
+    border-color: #bcebd0;
+}
+
+.ws-leaves-status.rejected {
+    color: #b42332;
+    background: #fff0f1;
+    border-color: #ffd1d6;
+}
+
+/* HR review controls */
+
+.ws-leaves-review-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 9px;
+    min-width: 160px;
+}
+
+.ws-leaves-review-actions textarea {
+    min-height: 70px;
+    font-size: 12px;
+}
+
+.ws-leaves-approve-button {
+    color: #ffffff;
+    background: #168653;
+}
+
+.ws-leaves-approve-button:hover:not(:disabled) {
+    background: #116c42;
+}
+
+.ws-leaves-reject-button {
+    color: #b42332;
+    background: #fff0f1;
+    border-color: #ffd1d6;
+}
+
+.ws-leaves-reject-button:hover:not(:disabled) {
+    background: #ffe1e4;
+}
+
+/* Empty/loading states */
+
+.ws-leaves-empty {
+    margin: 0;
+    padding: 35px 20px;
+    color: #8190a5;
+    background: #fafbfe;
+    border: 1px dashed #dce4ef;
+    border-radius: 12px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Responsive layout */
+
+@media (max-width: 1100px) {
+    .ws-leaves-page {
+        padding: 22px;
+    }
+
+    .ws-leaves-balance-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ws-leaves-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ws-leaves-filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .ws-leaves-page {
+        padding: 15px;
+    }
+
+    .ws-leaves-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .ws-leaves-header h1 {
+        font-size: 25px;
+    }
+
+    .ws-leaves-header .ws-leaves-primary-button {
+        width: 100%;
+    }
+
+    .ws-leaves-panel {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .ws-leaves-section-heading h2 {
+        font-size: 18px;
+    }
+
+    .ws-leaves-balance-grid,
+    .ws-leaves-stats,
+    .ws-leaves-form-grid,
+    .ws-leaves-filters {
+        grid-template-columns: 1fr;
+    }
+
+    .ws-leaves-balance-card {
+        padding: 20px;
+    }
+
+    .ws-leaves-stat-card {
+        padding: 20px;
+    }
+
+    .ws-leaves-reason-field {
+        grid-column: auto;
+    }
+
+    .ws-leaves-form-footer {
+        justify-content: stretch;
+    }
+
+    .ws-leaves-form-footer .ws-leaves-primary-button {
+        width: 100%;
+    }
+
+    .ws-leaves-filters > button {
+        width: 100%;
+    }
+
+    .ws-leaves-table {
+        min-width: 900px;
+    }
+}
